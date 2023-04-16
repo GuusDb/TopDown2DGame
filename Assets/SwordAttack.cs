@@ -38,7 +38,6 @@ public class SwordAttack : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        print("no hit");
         if(other.tag == "Enemy")
         {
             print("hit");
@@ -48,6 +47,11 @@ public class SwordAttack : MonoBehaviour
             {
                 enemy.Health -= damage;
             }
+        }
+        if(other.tag == "Chest")
+        {
+            Chest chest = other.GetComponent<Chest>();
+            chest.Open();
         }
     }
 }
